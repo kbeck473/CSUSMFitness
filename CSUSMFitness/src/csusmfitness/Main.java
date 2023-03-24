@@ -4,8 +4,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		new JFrame();
-
+		JFrame demo = new JFrame();
+			demo.setVisible(true);
 	}
 
 }
