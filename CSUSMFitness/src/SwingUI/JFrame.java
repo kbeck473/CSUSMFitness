@@ -1,4 +1,4 @@
-package csusmfitness;
+package SwingUI;
 // test
 import java.awt.EventQueue;
 
@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 import javax.swing.border.LineBorder;
+
 import java.awt.Color;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -66,16 +67,12 @@ public class JFrame extends javax.swing.JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		newUserPanel currentNewUserPanel = new newUserPanel();  // Creates New User Page
-		contentPane.add(currentNewUserPanel.panel);
-		
-		JList list = new JList();
-		list.setBounds(242, 342, 1, 1);
-		contentPane.add(list);
 
-		
-		
-		
-		
+		HomePage homepanel = new HomePage();  // Creates New User Page
+		contentPane.add(homepanel.currentHomePanel); //Jerma AKA the man behind the slaughter
 	}
 }
+
+
+
+

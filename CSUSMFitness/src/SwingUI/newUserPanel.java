@@ -1,4 +1,4 @@
-package csusmfitness;
+package SwingUI;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -105,11 +105,13 @@ public class newUserPanel extends JPanel  {
 		panel.add(rdbtnNewRadioButton);
 		
 		JRadioButton rdbtnSilver = new JRadioButton("Silver");
-		rdbtnSilver.setBounds(317, 303, 103, 21);
+		rdbtnSilver.setForeground(Color.GRAY);
+		rdbtnSilver.setBounds(317, 303, 67, 21);
 		panel.add(rdbtnSilver);
 		
 		JRadioButton rdbtnGold = new JRadioButton("Gold");
-		rdbtnGold.setBounds(442, 303, 103, 21);
+		rdbtnGold.setForeground(new Color(253, 242, 34));
+		rdbtnGold.setBounds(402, 304, 103, 21);
 		panel.add(rdbtnGold);
 	}
 }

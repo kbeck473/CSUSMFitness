@@ -1,4 +1,6 @@
 package csusmfitness;
+import  SwingUI.*;
+import SwingUI.JFrame;
 
 public class Main {
 
