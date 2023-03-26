@@ -24,11 +24,8 @@ import javax.swing.ButtonGroup;
 public class MenuHome extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
 	private JTabbedPane tabbedPane;
-	private final ButtonGroup SexButtonGroup = new ButtonGroup();
-	private final ButtonGroup TeirButtonGroup = new ButtonGroup();
+
 	/**
 	 * Launch the application.
 	 */
@@ -84,100 +81,11 @@ public class MenuHome extends JFrame {
 		WelcomeSplash.add(lblNewLabel_2);
 		
 		
-		// START OF NEW USER PANE
-		JPanel newUserPane = new JPanel();
-		newUserPane.setBackground(Color.WHITE);
-		newUserPane.setLayout(null);
-		newUserPane.setRequestFocusEnabled(false);
-		newUserPane.setPreferredSize(new Dimension(698, 508));
-		newUserPane.setOpaque(false);
-		newUserPane.setFocusTraversalPolicyProvider(true);
-		tabbedPane.addTab("New tab", null, newUserPane, null);
-		
-		JLabel NewUserTitleLabel = new JLabel("CREATE NEW USER");
-		NewUserTitleLabel.setFont(new Font("Tahoma", Font.BOLD, 36));
-		NewUserTitleLabel.setBounds(56, 11, 352, 36);
-		newUserPane.add(NewUserTitleLabel);
-		
-		JLabel CreateUserFirstNameLabel = new JLabel("First Name");
-		CreateUserFirstNameLabel.setBounds(56, 122, 86, 14);
-		newUserPane.add(CreateUserFirstNameLabel);
-		
-		JLabel CreateUserLastNameLabel = new JLabel("Last Name");
-		CreateUserLastNameLabel.setBounds(56, 154, 61, 14);
-		newUserPane.add(CreateUserLastNameLabel);
-		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(152, 119, 184, 20);
-		newUserPane.add(textField);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(152, 151, 184, 20);
-		newUserPane.add(textField_1);
-		
-		JRadioButton MaleSexRaidoButton = new JRadioButton("Male ");
-		SexButtonGroup.add(MaleSexRaidoButton);
-		MaleSexRaidoButton.setBounds(152, 200, 61, 23);
-		newUserPane.add(MaleSexRaidoButton);
-		
-		JRadioButton OtherSexRaidoButton = new JRadioButton("Female");
-		SexButtonGroup.add(OtherSexRaidoButton);
-		OtherSexRaidoButton.setBounds(215, 200, 66, 23);
-		newUserPane.add(OtherSexRaidoButton);
-		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Other");
-		SexButtonGroup.add(rdbtnNewRadioButton_2);
-		rdbtnNewRadioButton_2.setBounds(299, 200, 73, 23);
-		newUserPane.add(rdbtnNewRadioButton_2);
-		
-		JLabel NewUserSexLabel = new JLabel("Sex");
-		NewUserSexLabel.setBounds(56, 204, 46, 14);
-		newUserPane.add(NewUserSexLabel);
-		
-		JLabel PersonalInfoLabel = new JLabel("Personal Info");
-		PersonalInfoLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		PersonalInfoLabel.setBounds(137, 61, 189, 54);
-		newUserPane.add(PersonalInfoLabel);
-		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(152, 244, 39, 20);
-		newUserPane.add(spinner);
-		
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setBounds(215, 244, 39, 20);
-		newUserPane.add(spinner_1);
-		
-		JSpinner spinner_2 = new JSpinner();
-		spinner_2.setBounds(287, 244, 49, 20);
-		newUserPane.add(spinner_2);
-		
-		JLabel lblNewLabel_1 = new JLabel("Birthdate (M/D/Y)");
-		lblNewLabel_1.setBounds(56, 247, 86, 13);
-		newUserPane.add(lblNewLabel_1);
-		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Bronze");
-		TeirButtonGroup.add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.setForeground(new Color(128, 64, 0));
-		rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-		rdbtnNewRadioButton.setBounds(152, 286, 86, 21);
-		newUserPane.add(rdbtnNewRadioButton);
-		
-		JRadioButton rdbtnSilver = new JRadioButton("Silver");
-		TeirButtonGroup.add(rdbtnSilver);
-		rdbtnSilver.setForeground(Color.GRAY);
-		rdbtnSilver.setBounds(269, 286, 67, 21);
-		newUserPane.add(rdbtnSilver);
-		
-		JRadioButton rdbtnGold = new JRadioButton("Gold");
-		TeirButtonGroup.add(rdbtnGold);
-		rdbtnGold.setForeground(new Color(253, 242, 34));
-		rdbtnGold.setBounds(354, 287, 103, 21);
-		newUserPane.add(rdbtnGold);
-		//  END OF NEW USER PANEL		
-		
-		
+		//ADDS NewUserPanel
+		newUserPanel newUserPanel_ = new newUserPanel();
+		tabbedPane.addTab("New tab", null, newUserPanel_, null);
+		newUserPanel_.setLayout(null);
+		newUserPanel_.revalidate();	
 		
 		
 		//START OF PUTTON PANNEL
@@ -283,13 +191,11 @@ public class MenuHome extends JFrame {
 		JLabel lblNewLabel_4 = new JLabel("DeleteUser");
 		DeleteUserPanel.add(lblNewLabel_4);
 
+
 		
 		
 		
 	}
-	
-	
-
 }
 
 
