@@ -1,4 +1,4 @@
-package SwingUI;
+package csusmfitness;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -93,10 +93,6 @@ public class newUserPanel extends JPanel  {
 		JLabel lblNewLabel = new JLabel("Birthdate (M/D/Y)");
 		lblNewLabel.setBounds(104, 264, 86, 13);
 		panel.add(lblNewLabel);
-		
-		JButton btnNewButton = new JButton("HOME");
-		btnNewButton.setBounds(10, 10, 85, 21);
-		panel.add(btnNewButton);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Bronze");
 		rdbtnNewRadioButton.setForeground(new Color(128, 64, 0));
