@@ -113,6 +113,11 @@ public class MenuHome extends JFrame {
 		sideBarButtonPanel_2.add(lblDeleteUser);
 		
 		JPanel sideBarButtonPanel_3 = new JPanel();
+		sideBarButtonPanel_3.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				tabbedPane.setSelectedIndex(4);
+			}
+		});
 		sideBarButtonPanel_3.setBounds(0, 304, 255, 77);
 		sideBar.add(sideBarButtonPanel_3);
 		
@@ -126,7 +131,7 @@ public class MenuHome extends JFrame {
 		sideBarButtonPanel_4.setLayout(null);
 		
 		JLabel lblCommingSoon = new JLabel("Checked In users: 0");
-		lblCommingSoon.setBounds(0, 37, 245, 29);
+		lblCommingSoon.setBounds(10, 37, 245, 29);
 		lblCommingSoon.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		sideBarButtonPanel_4.add(lblCommingSoon);
 		//END OF PUTTON PANNEL
@@ -178,13 +183,16 @@ public class MenuHome extends JFrame {
 		 newUserPanel_.setLayout(null);
 		 newUserPanel_.revalidate();
 		 
+		 viewUserPanel viewUserPanel_ = new viewUserPanel();
+		 tabbedPane.addTab("New tab", null, viewUserPanel_, null);
+		 
 		 tabbedPane.setSelectedIndex(0);
 		 
-		 JPanel DeleteUserPanel = new JPanel();
-		 tabbedPane.addTab("New tab", null, DeleteUserPanel, null);
+		 deleteUserPanel deleteUserPanel_ = new deleteUserPanel();
+		 tabbedPane.addTab("New tab", null, deleteUserPanel_, null);
 		 
-		 JLabel lblNewLabel_4 = new JLabel("DeleteUser");
-		 DeleteUserPanel.add(lblNewLabel_4);
+		 CheckInOut checkInOut = new CheckInOut();
+		 tabbedPane.addTab("New tab", null, checkInOut, null);
 
 
 		
