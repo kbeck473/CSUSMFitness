@@ -46,6 +46,7 @@ public class MenuHome extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuHome() {
+		setTitle("CSUSM MMS (NOT FINAL) SRS SAMPLES");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1187, 754);
 		contentPane = new JPanel();
@@ -60,40 +61,6 @@ public class MenuHome extends JFrame {
 		panel.setBounds(0, 0, 1171, 715);
 		contentPane.add(panel);
 		panel.setLayout(null);
-		
-		 tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		tabbedPane.setBounds(255, 53, 916, 662);
-		panel.add(tabbedPane);
-		
-		JPanel WelcomeSplash = new JPanel();
-		tabbedPane.addTab("New tab", null, WelcomeSplash, null);
-		WelcomeSplash.setLayout(null);
-		
-		JLabel welcomebanner = new JLabel("Welcome to CSUSM MMS");
-		welcomebanner.setFont(new Font("Tahoma", Font.BOLD, 30));
-		welcomebanner.setBounds(237, 0, 390, 66);
-		WelcomeSplash.add(welcomebanner);
-		
-		JLabel lblNewLabel_2 = new JLabel("Please make a selection from the buttons on the left");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_2.setBounds(182, 94, 521, 66);
-		WelcomeSplash.add(lblNewLabel_2);
-		
-		
-		//ADDS NewUserPanel
-		newUserPanel newUserPanel_ = new newUserPanel();
-		tabbedPane.addTab("New tab", null, newUserPanel_, null);
-		newUserPanel_.setLayout(null);
-		newUserPanel_.revalidate();	
-		
-		
-		//START OF PUTTON PANNEL
-		JPanel ViewUserPanel = new JPanel();
-		tabbedPane.addTab("New tab", null, ViewUserPanel, null);
-		
-		JLabel lblNewLabel_3 = new JLabel("View Uer");
-		ViewUserPanel.add(lblNewLabel_3);
 		
 		JPanel sideBar = new JPanel();
 		sideBar.setBackground(new Color(95, 185, 245));
@@ -149,15 +116,17 @@ public class MenuHome extends JFrame {
 		sideBarButtonPanel_3.setBounds(0, 304, 255, 77);
 		sideBar.add(sideBarButtonPanel_3);
 		
-		JLabel lblCo = new JLabel("Comming Soon");
+		JLabel lblCo = new JLabel("Check In/Out");
 		lblCo.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		sideBarButtonPanel_3.add(lblCo);
 		
 		JPanel sideBarButtonPanel_4 = new JPanel();
-		sideBarButtonPanel_4.setBounds(0, 392, 255, 77);
+		sideBarButtonPanel_4.setBounds(0, 574, 255, 77);
 		sideBar.add(sideBarButtonPanel_4);
+		sideBarButtonPanel_4.setLayout(null);
 		
-		JLabel lblCommingSoon = new JLabel("Comming Soon");
+		JLabel lblCommingSoon = new JLabel("Checked In users: 0");
+		lblCommingSoon.setBounds(0, 37, 245, 29);
 		lblCommingSoon.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		sideBarButtonPanel_4.add(lblCommingSoon);
 		//END OF PUTTON PANNEL
@@ -183,13 +152,39 @@ public class MenuHome extends JFrame {
 		lblNewLabel.setBounds(26, 11, 313, 30);
 		topBar.add(lblNewLabel);
 		
-		tabbedPane.setSelectedIndex(0);
-		
-		JPanel DeleteUserPanel = new JPanel();
-		tabbedPane.addTab("New tab", null, DeleteUserPanel, null);
-		
-		JLabel lblNewLabel_4 = new JLabel("DeleteUser");
-		DeleteUserPanel.add(lblNewLabel_4);
+		 tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		 tabbedPane.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		 tabbedPane.setBounds(255, 26, 916, 689);
+		 panel.add(tabbedPane);
+		 
+		 JPanel WelcomeSplash = new JPanel();
+		 tabbedPane.addTab("New tab", null, WelcomeSplash, null);
+		 WelcomeSplash.setLayout(null);
+		 
+		 JLabel welcomebanner = new JLabel("Welcome to CSUSM MMS");
+		 welcomebanner.setFont(new Font("Tahoma", Font.BOLD, 30));
+		 welcomebanner.setBounds(237, 0, 390, 66);
+		 WelcomeSplash.add(welcomebanner);
+		 
+		 JLabel lblNewLabel_2 = new JLabel("Please make a selection from the buttons on the left");
+		 lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		 lblNewLabel_2.setBounds(182, 94, 521, 66);
+		 WelcomeSplash.add(lblNewLabel_2);
+		 
+		 
+		 //ADDS NewUserPanel
+		 newUserPanel newUserPanel_ = new newUserPanel();
+		 tabbedPane.addTab("New tab", null, newUserPanel_, null);
+		 newUserPanel_.setLayout(null);
+		 newUserPanel_.revalidate();
+		 
+		 tabbedPane.setSelectedIndex(0);
+		 
+		 JPanel DeleteUserPanel = new JPanel();
+		 tabbedPane.addTab("New tab", null, DeleteUserPanel, null);
+		 
+		 JLabel lblNewLabel_4 = new JLabel("DeleteUser");
+		 DeleteUserPanel.add(lblNewLabel_4);
 
 
 		
