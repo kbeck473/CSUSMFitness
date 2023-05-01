@@ -5,19 +5,22 @@ import java.awt.Dimension;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 
-public class viewUserPanel extends JPanel {
+public class viewUserPanel extends JPanel implements ActionListener {
 	private JTextField textField;
 
 	/**
 	 * Create the panel.
 	 */
-	public viewUserPanel() {
+	public viewUserPanel(){
 		setMinimumSize(new Dimension(600, 500));
 		setLayout(null);
 		
-		textField = new JTextField();
+		textField = new JTextField(); // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 		textField.setBounds(158, 101, 86, 20);
 		add(textField);
 		textField.setColumns(10);
@@ -34,6 +37,8 @@ public class viewUserPanel extends JPanel {
 		JButton btnNewButton = new JButton("search");
 		btnNewButton.setBounds(264, 100, 89, 23);
 		add(btnNewButton);
+		
+		btnNewButton.addActionListener((ActionListener) this);
 		
 		JLabel lblNewLabel_1 = new JLabel("Name ");
 		lblNewLabel_1.setBounds(86, 148, 46, 14);
@@ -59,7 +64,7 @@ public class viewUserPanel extends JPanel {
 		lblNewLabel_6.setBounds(83, 264, 65, 14);
 		add(lblNewLabel_6);
 		
-		JLabel lblNewLabel_7 = new JLabel("MembershipTeir");
+		JLabel lblNewLabel_7 = new JLabel("MembershipTier");
 		lblNewLabel_7.setBounds(171, 264, 120, 14);
 		add(lblNewLabel_7);
 		
@@ -79,5 +84,16 @@ public class viewUserPanel extends JPanel {
 		lblNewLabel_9.setBounds(183, 302, 46, 14);
 		add(lblNewLabel_9);
 
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		int passID = Integer.parseInt(textField.getText());
+		DbQuery b = new DbQuery();
+		try {
+			b.viewUserDataQuery(passID);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 }

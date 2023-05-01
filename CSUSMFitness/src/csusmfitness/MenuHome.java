@@ -21,7 +21,7 @@ import java.awt.ComponentOrientation;
 import javax.swing.ImageIcon;
 import javax.swing.ButtonGroup;
 
-public class MenuHome extends JFrame {
+public class MenuHome extends JFrame{
 
 	private JPanel contentPane;
 	private JTabbedPane tabbedPane;
