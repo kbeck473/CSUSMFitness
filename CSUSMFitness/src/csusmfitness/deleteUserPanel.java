@@ -35,6 +35,14 @@ public class deleteUserPanel extends JPanel {
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int idInput = Integer.parseInt(textField.getText());
+				DbQuery deleteUser = new DbQuery();
+				try {
+					deleteUser.deleteUserQuery(idInput);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnDelete.setBounds(331, 100, 89, 23);
