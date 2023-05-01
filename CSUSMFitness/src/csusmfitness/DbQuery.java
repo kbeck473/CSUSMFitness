@@ -16,7 +16,7 @@ public class DbQuery {
 	public void newUserQuery(String FN, String LN, String S, String BDay, String MemT) throws Exception{
 		
 		String query = "INSERT INTO userinfo (FName, LName, Sex, Birthday, MemTier, Status)"
-				+ " VALUES(" + "'" + FN + "', '" + LN + "', '" + S + "', STR_TO_DATE('" + BDay + "', '%m/%d/%Y'), '" + MemT + "', " + "false)";
+				+ " VALUES(" + "'" + FN + "', '" + LN + "', '" + S + "', STR_TO_DATE('" + BDay + "', '%d/%m/%Y'), '" + MemT + "', " + "false)";
 		
 		
 		//register MySQL thin driver w/ DriverManager service
