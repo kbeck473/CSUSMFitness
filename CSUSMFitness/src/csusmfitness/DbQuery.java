@@ -2,6 +2,8 @@ package csusmfitness;
 
 //import java.awt.event.ActionListener;
 import java.sql.*;
+
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -11,6 +13,14 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+class UserInfo {
+	public String FirstName;
+	public String LastName;
+	public String Sex;
+	public Date Birthday;
+	public String Membership;
+	public boolean curStatus;
+}
 public class DbQuery {
 	
 	public void newUserQuery(String FN, String LN, String S, String BDay, String MemT) throws Exception{
@@ -75,9 +85,62 @@ public class DbQuery {
 				
 	}
 	
-	public void viewUserDataQuery(int IDNum) throws Exception {
+	public UserInfo viewUserDataQuery(int IDNum) throws Exception {
 		String query = "SELECT * FROM userinfo WHERE IDNum = " + IDNum;
 		
+		//register MySQL thin driver w/ DriverManager service
+		Class.forName("com.mysql.cj.jdbc.Driver");
+				
+		//variables
+		final String url = "jdbc:mysql:///370test";
+		final String user = "root";
+		final String password = "e4jX1X217stU";
+		
+		UserInfo c = new UserInfo();
+				
+		//establish the connection
+		Connection con = DriverManager.getConnection(url, user, password);
+				
+		//display status message
+		if (con == null) {
+			System.out.println("JDBC connection is not established");
+		}
+		else
+		{
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			
+			if(rs.next() == false) {
+				System.out.println("ID Number doesn't exist/was not input correctly.");
+				return null;
+			}
+			
+			System.out.println("id\t|FName\t|LName\t|Sex\t|Birthday      |MemTier |Status");
+			
+			while(rs.next())
+			{
+				
+						c.FirstName = rs.getString("FName");
+						c.LastName = rs.getString("LName");
+						c.Sex = rs.getString("Sex");
+						c.Birthday = rs.getDate("Birthday");
+						c.Membership = rs.getString("MemTier");
+						c.curStatus = rs.getBoolean("Status");
+						
+				
+			}
+		}
+		con.close();
+		return c;
+	}
+	
+	public void checkInOutQuery(int IDNum) throws Exception {
+		String query = "UPDATE userinfo "
+				+ "SET Status = !Status "
+				+ "WHERE IDNum = " + IDNum;
+		
+		String query2 = "SELECT Status FROM userinfo "
+				+ "WHERE IDNum = " + IDNum; 
 		//register MySQL thin driver w/ DriverManager service
 		Class.forName("com.mysql.cj.jdbc.Driver");
 				
@@ -95,23 +158,24 @@ public class DbQuery {
 		}
 		else
 		{
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
+			//System.out.println("Congratulations, " + " JDBC connection is established successfully.\n");
+			PreparedStatement pStmt = con.prepareStatement(query);				
+			pStmt.executeUpdate();
 			
-			System.out.println("id\t|FName\t|LName\t|Sex\t|Birthday      |MemTier |Status");
+			Statement pStmt2 = con.createStatement();
+			ResultSet rs = pStmt2.executeQuery(query2);
+			
 			
 			while(rs.next())
 			{
-				System.out.println(rs.getInt("IDNum")  + "\t"
-						+ rs.getString("FName") + "\t"
-						+ rs.getString("LName") + "\t  "
-						+ rs.getString("Sex") + "\t"
-						+ rs.getDate("Birthday") + "\t"
-						+ rs.getString("MemTier") + "\t"
-						+ rs.getBoolean("Status"));
+				if(rs.getBoolean("Status") == false)
+					System.out.println("You have checked out!");
+				else
+					System.out.println("You have checked in!");
 			}
 		}
 		con.close();
+		
 	}
 }
 	
