@@ -1,6 +1,7 @@
 package csusmfitness;
 
 import javax.swing.JPanel;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -8,7 +9,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class CheckInOut extends JPanel {
+public class CheckInOut extends JPanel{
 	private JTextField textField;
 
 	/**
@@ -31,9 +32,17 @@ public class CheckInOut extends JPanel {
 		lblCheckInout.setBounds(164, 32, 190, 56);
 		add(lblCheckInout);
 		
-		JButton btnIn = new JButton("IN");
+		JButton btnIn = new JButton("CHANGE STATUS");
 		btnIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int passID = Integer.parseInt(textField.getText());
+				DbQuery b = new DbQuery();
+				try {
+					b.checkInOutQuery(passID);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnIn.setBounds(129, 182, 89, 23);
