@@ -141,6 +141,10 @@ public class DbQuery {
 		
 		String query2 = "SELECT Status FROM userinfo "
 				+ "WHERE IDNum = " + IDNum; 
+		
+		String countQuery = "SELECT COUNT(*) "
+				+ "FROM userinfo "
+				+ "WHERE Status = 1";
 		//register MySQL thin driver w/ DriverManager service
 		Class.forName("com.mysql.cj.jdbc.Driver");
 				
@@ -165,13 +169,36 @@ public class DbQuery {
 			Statement pStmt2 = con.createStatement();
 			ResultSet rs = pStmt2.executeQuery(query2);
 			
-			
+			Statement countCheck = con.createStatement();
+			ResultSet checkValue = countCheck.executeQuery(countQuery);
 			while(rs.next())
 			{
-				if(rs.getBoolean("Status") == false)
+				if(rs.getBoolean("Status") == false) {
 					System.out.println("You have checked out!");
-				else
+					checkValue.next();
+					int counter = checkValue.getInt("Count(*)");
+					System.out.println(counter + " currently checked in.\n");
+				}
+				else {
 					System.out.println("You have checked in!");
+					checkValue.next();
+					int counter = checkValue.getInt("Count(*)");
+					System.out.println(counter + " currently checked in.\n");
+				}
+				/*
+				 * TO REDIRECT THE COUNTER VALUE TO THE CHECK IN PANEL
+				 * MOVE INT COUNTER DECLARATION TO OUTSIDE OF WHILE LOOP (?)
+				 * REORGANIZE
+				 * CHANGE RETURN TYPE OF FUNCTION FROM VOID TO INT
+				 * RETURN COUNTER
+				 * PASS COUNTER TO THE PANEL DISPLAY
+				 * 
+				 * NEED TO ADD:
+				 * ERROR HANDLING -- WHAT IF WRONG ID -- RIGHT NOW IT DOESN'T DO ANYTHING
+				 * 
+				 * 
+				 * 
+				 */
 			}
 		}
 		con.close();
