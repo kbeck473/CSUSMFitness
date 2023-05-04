@@ -130,11 +130,14 @@ public class MenuHome extends JFrame{
 		sideBar.add(sideBarButtonPanel_4);
 		sideBarButtonPanel_4.setLayout(null);
 		
+		//================================================================
 		JLabel lblCommingSoon = new JLabel("Checked In users: 0");
 		lblCommingSoon.setBounds(10, 37, 245, 29);
 		lblCommingSoon.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		sideBarButtonPanel_4.add(lblCommingSoon);
 		//END OF PUTTON PANNEL
+		
+		//================================================================
 
 		//START OF HEAD BAR
 
