@@ -13,7 +13,7 @@ import javax.swing.JButton;
 public class viewUserPanel extends JPanel implements ActionListener {
 	private JTextField textField;
 	
-
+//test for push
 	/**
 	 * Create the panel.
 	 */
@@ -100,7 +100,6 @@ public class viewUserPanel extends JPanel implements ActionListener {
 			e1.printStackTrace();
 		}
 	}
-	;
 	public void updateView(UserInfo user) {
 		
 		//System.out.print(user.FirstName);
