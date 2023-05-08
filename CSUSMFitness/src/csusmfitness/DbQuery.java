@@ -17,11 +17,12 @@ class UserInfo {
 	public String FirstName;
 	public String LastName;
 	public String Sex;
-	public Date Birthday;
+	public String Birthday;
 	public String Membership;
-	public boolean curStatus;
+	public String curStatus;
 }
 public class DbQuery {
+	String DBPass = ("1246");
 	
 	public void newUserQuery(String FN, String LN, String S, String BDay, String MemT) throws Exception{
 		
@@ -35,7 +36,7 @@ public class DbQuery {
 		//variables
 		final String url = "jdbc:mysql:///370test";
 		final String user = "root";
-		final String password = "e4jX1X217stU";
+		final String password = "DBPass";
 				
 		//establish the connection
 		Connection con = DriverManager.getConnection(url, user, password);
@@ -65,7 +66,7 @@ public class DbQuery {
 				//variables
 				final String url = "jdbc:mysql:///370test";
 				final String user = "root";
-				final String password = "e4jX1X217stU";
+				final String password = DBPass ;
 						
 				//establish the connection
 				Connection con = DriverManager.getConnection(url, user, password);
@@ -94,7 +95,7 @@ public class DbQuery {
 		//variables
 		final String url = "jdbc:mysql:///370test";
 		final String user = "root";
-		final String password = "e4jX1X217stU";
+		final String password = "1246";
 		
 		UserInfo c = new UserInfo();
 				
@@ -117,18 +118,21 @@ public class DbQuery {
 			
 			System.out.println("id\t|FName\t|LName\t|Sex\t|Birthday      |MemTier |Status");
 			
-			while(rs.next())
-			{
-				
+			
+	
 						c.FirstName = rs.getString("FName");
 						c.LastName = rs.getString("LName");
 						c.Sex = rs.getString("Sex");
-						c.Birthday = rs.getDate("Birthday");
+						c.Birthday = rs.getDate("Birthday").toString();
 						c.Membership = rs.getString("MemTier");
-						c.curStatus = rs.getBoolean("Status");
+						if (rs.getBoolean("Status")== true) {
+							c.curStatus = ("IN");
+
+						}else {
+							c.curStatus = ("OUT");
+						}
 						
 				
-			}
 		}
 		con.close();
 		return c;
@@ -147,7 +151,7 @@ public class DbQuery {
 		//variables
 		final String url = "jdbc:mysql:///370test";
 		final String user = "root";
-		final String password = "e4jX1X217stU";
+		final String password = DBPass;
 				
 		//establish the connection
 		Connection con = DriverManager.getConnection(url, user, password);

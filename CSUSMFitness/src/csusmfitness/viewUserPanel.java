@@ -12,10 +12,16 @@ import javax.swing.JButton;
 
 public class viewUserPanel extends JPanel implements ActionListener {
 	private JTextField textField;
+	
 
 	/**
 	 * Create the panel.
 	 */
+	JLabel UserDOBLabel;
+	JLabel UserNameLabel;
+	JLabel UserSexLabel;
+	JLabel TeirLabel;
+	JLabel Statuslabel;
 	public viewUserPanel(){
 		setMinimumSize(new Dimension(600, 500));
 		setLayout(null);
@@ -44,45 +50,41 @@ public class viewUserPanel extends JPanel implements ActionListener {
 		lblNewLabel_1.setBounds(86, 148, 46, 14);
 		add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("first");
-		lblNewLabel_2.setBounds(171, 148, 46, 14);
-		add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_3 = new JLabel("Last");
-		lblNewLabel_3.setBounds(208, 148, 46, 14);
-		add(lblNewLabel_3);
+		UserNameLabel = new JLabel("first");
+		UserNameLabel.setBounds(171, 148, 120, 14);
+		add(UserNameLabel);
 		
 		JLabel lblNewLabel_4 = new JLabel("DOB");
 		lblNewLabel_4.setBounds(86, 225, 46, 14);
 		add(lblNewLabel_4);
 		
-		JLabel lblNewLabel_5 = new JLabel("01/01/01");
-		lblNewLabel_5.setBounds(171, 225, 46, 14);
-		add(lblNewLabel_5);
+		 UserDOBLabel = new JLabel("01/01/01");
+		UserDOBLabel.setBounds(171, 225, 46, 14);
+		add(UserDOBLabel);
 		
 		JLabel lblNewLabel_6 = new JLabel("Member level");
 		lblNewLabel_6.setBounds(83, 264, 65, 14);
 		add(lblNewLabel_6);
 		
-		JLabel lblNewLabel_7 = new JLabel("MembershipTier");
-		lblNewLabel_7.setBounds(171, 264, 120, 14);
-		add(lblNewLabel_7);
+		 TeirLabel = new JLabel("MembershipTier");
+		TeirLabel.setBounds(171, 264, 137, 14);
+		add(TeirLabel);
 		
 		JLabel lblNewLabel_4_1 = new JLabel("Sex");
 		lblNewLabel_4_1.setBounds(86, 184, 46, 14);
 		add(lblNewLabel_4_1);
 		
-		JLabel lblNewLabel_5_1 = new JLabel("User Sex");
-		lblNewLabel_5_1.setBounds(171, 184, 46, 14);
-		add(lblNewLabel_5_1);
+		UserSexLabel = new JLabel("User Sex");
+		UserSexLabel.setBounds(171, 184, 112, 14);
+		add(UserSexLabel);
 		
 		JLabel lblNewLabel_8 = new JLabel("Check in status");
 		lblNewLabel_8.setBounds(83, 302, 73, 14);
 		add(lblNewLabel_8);
 		
-		JLabel lblNewLabel_9 = new JLabel("in/out");
-		lblNewLabel_9.setBounds(183, 302, 46, 14);
-		add(lblNewLabel_9);
+		 Statuslabel = new JLabel("in/out");
+		Statuslabel.setBounds(183, 302, 46, 14);
+		add(Statuslabel);
 
 	}
 	
@@ -90,10 +92,22 @@ public class viewUserPanel extends JPanel implements ActionListener {
 		int passID = Integer.parseInt(textField.getText());
 		DbQuery b = new DbQuery();
 		try {
-			b.viewUserDataQuery(passID);
+			UserInfo displayedUser = b.viewUserDataQuery(passID);
+			updateView(displayedUser);
+			
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+	}
+	
+	public void updateView(UserInfo user) {
+		
+		//System.out.print(user.FirstName);
+		UserNameLabel.setText(user.FirstName + " " + user.LastName);
+		UserDOBLabel.setText(user.Birthday);
+		 UserSexLabel.setText(user.Sex);
+		TeirLabel.setText(user.Membership);
+		 Statuslabel.setText(user.curStatus);
 	}
 }
