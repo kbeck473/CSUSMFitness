@@ -100,7 +100,7 @@ public class viewUserPanel extends JPanel implements ActionListener {
 			e1.printStackTrace();
 		}
 	}
-	
+	;
 	public void updateView(UserInfo user) {
 		
 		//System.out.print(user.FirstName);
