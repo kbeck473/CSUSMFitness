@@ -15,10 +15,15 @@ import javax.swing.*;
 
 class UserInfo {
 	public String FirstName;
+
 	public String LastName;
+
 	public String Sex;
-	public Date Birthday;
+
+	public String Birthday;
+
 	public String Membership;
+
 	public boolean curStatus;
 }
 public class DbQuery {
@@ -116,19 +121,13 @@ public class DbQuery {
 			}
 			
 			System.out.println("id\t|FName\t|LName\t|Sex\t|Birthday      |MemTier |Status");
-			
-			while(rs.next())
-			{
-				
 						c.FirstName = rs.getString("FName");
 						c.LastName = rs.getString("LName");
 						c.Sex = rs.getString("Sex");
-						c.Birthday = rs.getDate("Birthday");
+						c.Birthday = rs.getDate("Birthday").toString();
 						c.Membership = rs.getString("MemTier");
 						c.curStatus = rs.getBoolean("Status");
-						
-				
-			}
+			System.out.println(c.FirstName + " " + c.LastName + " " + c.Sex + " " + c.Birthday + " " + c.Membership + " " + c.curStatus);
 		}
 		con.close();
 		return c;
