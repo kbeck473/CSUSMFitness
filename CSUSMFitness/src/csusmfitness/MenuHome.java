@@ -20,6 +20,7 @@ import java.awt.event.ActionEvent;
 import java.awt.ComponentOrientation;
 import javax.swing.ImageIcon;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 
 public class MenuHome extends JFrame{
 
@@ -45,6 +46,8 @@ public class MenuHome extends JFrame{
 	/**
 	 * Create the frame.
 	 */
+	
+	JLabel countLabel;
 	public MenuHome() {
 		final DbQuery b = new DbQuery();
 		setTitle("CSUSM MMS (NOT FINAL) SRS SAMPLES");
@@ -158,10 +161,25 @@ public class MenuHome extends JFrame{
 		sideBarButtonPanel_4.setLayout(null);
 		
 		//================================================================
-		JLabel lblCommingSoon = new JLabel("Checked In users: 0");
-		lblCommingSoon.setBounds(10, 37, 245, 29);
+		JLabel lblCommingSoon = new JLabel("Checked In users:");
+		lblCommingSoon.setBounds(0, 38, 177, 29);
 		lblCommingSoon.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		sideBarButtonPanel_4.add(lblCommingSoon);
+		
+		JButton refreshbtn = new JButton("Refresh");
+		refreshbtn.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				updatecount();
+			}
+		});
+		refreshbtn.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		refreshbtn.setBounds(80, 6, 85, 21);
+		sideBarButtonPanel_4.add(refreshbtn);
+		
+		countLabel = new JLabel("0");
+		countLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		countLabel.setBounds(187, 48, 58, 15);
+		sideBarButtonPanel_4.add(countLabel);
 		//END OF PUTTON PANNEL
 		
 		//================================================================
@@ -233,6 +251,23 @@ public class MenuHome extends JFrame{
 
 		
 		
+		
+	}
+	
+	
+	
+	public void updatecount() {
+		DbQuery b = new DbQuery();
+		try {
+			int valOfUsers = b.changeCheckInOut();
+			String Count = String.valueOf(valOfUsers);
+			//System.out.print(Count2);
+			countLabel.setText(Count);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 }
