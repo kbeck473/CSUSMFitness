@@ -47,6 +47,7 @@ public class MenuHome extends JFrame{
 	 * Create the frame.
 	 */
 	public MenuHome() {
+		final DbQuery b = new DbQuery();
 		setTitle("CSUSM MMS (NOT FINAL) SRS SAMPLES");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1187, 754);
@@ -73,6 +74,13 @@ public class MenuHome extends JFrame{
 		sideBarButtonPanel_0.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				tabbedPane.setSelectedIndex(1);
+				try {
+					int valOfUsers = b.changeCheckInOut();
+					System.out.println("CURRENT NUM USERS: " + valOfUsers);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				
 			}
 		});
@@ -89,7 +97,13 @@ public class MenuHome extends JFrame{
 		sideBarButtonPanel_1.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				tabbedPane.setSelectedIndex(2);
-
+				try {
+					int valOfUsers = b.changeCheckInOut();
+					System.out.println("CURRENT NUM USERS: " + valOfUsers);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		sideBarButtonPanel_1.setBounds(0, 128, 255, 77);
@@ -103,7 +117,13 @@ public class MenuHome extends JFrame{
 		sideBarButtonPanel_2.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				tabbedPane.setSelectedIndex(3);
-
+				try {
+					int valOfUsers = b.changeCheckInOut();
+					System.out.println("CURRENT NUM USERS: " + valOfUsers);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		sideBarButtonPanel_2.setBounds(0, 216, 255, 77);
@@ -117,6 +137,13 @@ public class MenuHome extends JFrame{
 		sideBarButtonPanel_3.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				tabbedPane.setSelectedIndex(4);
+				try {
+					int valOfUsers = b.changeCheckInOut();
+					System.out.println("CURRENT NUM USERS: " + valOfUsers);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		sideBarButtonPanel_3.setBounds(0, 304, 255, 77);
@@ -131,6 +158,7 @@ public class MenuHome extends JFrame{
 		sideBar.add(sideBarButtonPanel_4);
 		sideBarButtonPanel_4.setLayout(null);
 		
+		//================================================================
 		JLabel lblCommingSoon = new JLabel("Checked In users: 0");
 		lblCommingSoon.setBounds(10, 37, 245, 29);
 		lblCommingSoon.setFont(new Font("Times New Roman", Font.PLAIN, 24));
@@ -141,6 +169,8 @@ public class MenuHome extends JFrame{
 		refreshbtn.setBounds(80, 6, 85, 21);
 		sideBarButtonPanel_4.add(refreshbtn);
 		//END OF PUTTON PANNEL
+		
+		//================================================================
 
 		//START OF HEAD BAR
 
@@ -154,7 +184,13 @@ public class MenuHome extends JFrame{
 		lblNewLabel.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				tabbedPane.setSelectedIndex(0);
-
+				try {
+					int valOfUsers = b.changeCheckInOut();
+					System.out.println("CURRENT NUM USERS: " + valOfUsers);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 
