@@ -140,7 +140,6 @@ public class DbQuery {
 						}
 						
 
-						c.curStatus = rs.getBoolean("Status");
 			System.out.println(c.FirstName + " " + c.LastName + " " + c.Sex + " " + c.Birthday + " " + c.Membership + " " + c.curStatus);
 		}
 		con.close();
@@ -204,7 +203,7 @@ public class DbQuery {
 		//variables
 		final String url = "jdbc:mysql:///370test";
 		final String user = "root";
-		final String password = "e4jX1X217stU";
+		final String password = "1246";
 						
 		//establish the connection
 		Connection con = DriverManager.getConnection(url, user, password);
