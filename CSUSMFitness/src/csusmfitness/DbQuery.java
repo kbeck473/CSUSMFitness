@@ -21,6 +21,7 @@ class UserInfo {
 	public String Birthday;
 	public String Membership;
 	public String curStatus;
+
 }
 public class DbQuery {
 	String DBPass = ("1246");
@@ -118,14 +119,13 @@ public class DbQuery {
 			}
 			
 			System.out.println("id\t|FName\t|LName\t|Sex\t|Birthday      |MemTier |Status");
-			
-			
-	
+
 						c.FirstName = rs.getString("FName");
 						c.LastName = rs.getString("LName");
 						c.Sex = rs.getString("Sex");
 						c.Birthday = rs.getDate("Birthday").toString();
 						c.Membership = rs.getString("MemTier");
+
 						if (rs.getBoolean("Status")== true) {
 							c.curStatus = ("IN");
 
@@ -133,7 +133,9 @@ public class DbQuery {
 							c.curStatus = ("OUT");
 						}
 						
-				
+
+						c.curStatus = rs.getBoolean("Status");
+			System.out.println(c.FirstName + " " + c.LastName + " " + c.Sex + " " + c.Birthday + " " + c.Membership + " " + c.curStatus);
 		}
 		con.close();
 		return c;
@@ -146,6 +148,7 @@ public class DbQuery {
 		
 		String query2 = "SELECT Status FROM userinfo "
 				+ "WHERE IDNum = " + IDNum; 
+		
 		//register MySQL thin driver w/ DriverManager service
 		Class.forName("com.mysql.cj.jdbc.Driver");
 				
@@ -170,17 +173,48 @@ public class DbQuery {
 			Statement pStmt2 = con.createStatement();
 			ResultSet rs = pStmt2.executeQuery(query2);
 			
-			
 			while(rs.next())
 			{
-				if(rs.getBoolean("Status") == false)
+				if(rs.getBoolean("Status") == false) {
 					System.out.println("You have checked out!");
-				else
+				}
+				else {
 					System.out.println("You have checked in!");
+				}
 			}
 		}
 		con.close();
+	}
+	public int changeCheckInOut() throws Exception{
+		int counter = 0;
 		
+		String countQuery = "SELECT COUNT(*) "
+				+ "FROM userinfo "
+				+ "WHERE Status = 1";
+		
+		//register MySQL thin driver w/ DriverManager service
+		Class.forName("com.mysql.cj.jdbc.Driver");
+						
+		//variables
+		final String url = "jdbc:mysql:///370test";
+		final String user = "root";
+		final String password = "e4jX1X217stU";
+						
+		//establish the connection
+		Connection con = DriverManager.getConnection(url, user, password);
+		
+		//display status message
+		if (con == null) {
+			System.out.println("JDBC connection is not established");
+			return -1;
+		}
+		else {
+			Statement countCheck = con.createStatement();
+			ResultSet checkValue = countCheck.executeQuery(countQuery);
+			checkValue.next();
+			counter = checkValue.getInt("Count(*)");
+		}
+		return counter;
 	}
 }
 	
