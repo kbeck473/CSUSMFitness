@@ -20,6 +20,7 @@ import java.awt.event.ActionEvent;
 import java.awt.ComponentOrientation;
 import javax.swing.ImageIcon;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 
 public class MenuHome extends JFrame{
 
@@ -134,6 +135,11 @@ public class MenuHome extends JFrame{
 		lblCommingSoon.setBounds(10, 37, 245, 29);
 		lblCommingSoon.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		sideBarButtonPanel_4.add(lblCommingSoon);
+		
+		JButton refreshbtn = new JButton("Refresh");
+		refreshbtn.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		refreshbtn.setBounds(80, 6, 85, 21);
+		sideBarButtonPanel_4.add(refreshbtn);
 		//END OF PUTTON PANNEL
 
 		//START OF HEAD BAR
