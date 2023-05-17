@@ -114,7 +114,13 @@ public class DbQuery {
 			
 			if(rs.next() == false) {
 				System.out.println("ID Number doesn't exist/was not input correctly.");
-				return null;
+				c.FirstName = ("NO USER FOUND");
+				c.LastName =("");
+				c.Sex = ("Sex");
+				c.Birthday = "Birthday";
+				c.Membership = "MemTier";
+				c.curStatus = ("");
+				return c;
 			}
 			
 			System.out.println("id\t|FName\t|LName\t|Sex\t|Birthday      |MemTier |Status");
