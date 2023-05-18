@@ -227,7 +227,7 @@ public class MenuHome extends JFrame{
 		 
 		 JLabel lblNewLabel_2 = new JLabel("Please make a selection from the buttons on the left");
 		 lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		 lblNewLabel_2.setBounds(182, 94, 521, 66);
+		 lblNewLabel_2.setBounds(182, 94, 585, 201);
 		 WelcomeSplash.add(lblNewLabel_2);
 		 
 		 

@@ -47,11 +47,11 @@ public class viewUserPanel extends JPanel implements ActionListener {
 		btnNewButton.addActionListener((ActionListener) this);
 		
 		JLabel lblNewLabel_1 = new JLabel("Name ");
-		lblNewLabel_1.setBounds(86, 148, 46, 14);
+		lblNewLabel_1.setBounds(86, 148, 62, 14);
 		add(lblNewLabel_1);
 		
 		UserNameLabel = new JLabel("first");
-		UserNameLabel.setBounds(171, 148, 120, 14);
+		UserNameLabel.setBounds(216, 148, 177, 14);
 		add(UserNameLabel);
 		
 		JLabel lblNewLabel_4 = new JLabel("DOB");
@@ -59,31 +59,31 @@ public class viewUserPanel extends JPanel implements ActionListener {
 		add(lblNewLabel_4);
 		
 		 UserDOBLabel = new JLabel("01/01/01");
-		UserDOBLabel.setBounds(171, 225, 46, 14);
+		UserDOBLabel.setBounds(216, 225, 112, 14);
 		add(UserDOBLabel);
 		
 		JLabel lblNewLabel_6 = new JLabel("Member level");
-		lblNewLabel_6.setBounds(83, 264, 65, 14);
+		lblNewLabel_6.setBounds(83, 264, 86, 14);
 		add(lblNewLabel_6);
 		
 		 TeirLabel = new JLabel("MembershipTier");
-		TeirLabel.setBounds(171, 264, 137, 14);
+		TeirLabel.setBounds(216, 264, 137, 14);
 		add(TeirLabel);
 		
 		JLabel lblNewLabel_4_1 = new JLabel("Sex");
-		lblNewLabel_4_1.setBounds(86, 184, 46, 14);
+		lblNewLabel_4_1.setBounds(86, 184, 65, 14);
 		add(lblNewLabel_4_1);
 		
 		UserSexLabel = new JLabel("User Sex");
-		UserSexLabel.setBounds(171, 184, 112, 14);
+		UserSexLabel.setBounds(216, 184, 112, 14);
 		add(UserSexLabel);
 		
 		JLabel lblNewLabel_8 = new JLabel("Check in status");
-		lblNewLabel_8.setBounds(83, 302, 73, 14);
+		lblNewLabel_8.setBounds(83, 302, 100, 14);
 		add(lblNewLabel_8);
 		
 		 Statuslabel = new JLabel("in/out");
-		Statuslabel.setBounds(183, 302, 46, 14);
+		Statuslabel.setBounds(216, 302, 46, 14);
 		add(Statuslabel);
 
 	}
