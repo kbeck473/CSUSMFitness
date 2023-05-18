@@ -12,6 +12,6 @@ public class Main{
 		MenuHome demo = new MenuHome();
 		demo.setVisible(true);
 		
+
 		}
-	
 }
