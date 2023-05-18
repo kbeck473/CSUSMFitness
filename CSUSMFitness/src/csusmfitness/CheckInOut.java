@@ -45,12 +45,8 @@ public class CheckInOut extends JPanel{
 				}
 			}
 		});
-		btnIn.setBounds(129, 182, 89, 23);
+		btnIn.setBounds(164, 166, 169, 23);
 		add(btnIn);
-		
-		JButton btnNewButton = new JButton("Out");
-		btnNewButton.setBounds(259, 182, 89, 23);
-		add(btnNewButton);
 
 	}
 

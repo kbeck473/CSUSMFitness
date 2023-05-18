@@ -47,10 +47,6 @@ public class deleteUserPanel extends JPanel {
 		});
 		btnDelete.setBounds(331, 100, 89, 23);
 		add(btnDelete);
-		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Confirm delete");
-		chckbxNewCheckBox.setBounds(202, 138, 97, 23);
-		add(chckbxNewCheckBox);
 
 	}
 }

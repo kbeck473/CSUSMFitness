@@ -38,7 +38,7 @@ public class DbQuery {
 		//variables
 		final String url = "jdbc:mysql:///370test";
 		final String user = "root";
-		final String password = "DBPass";
+		final String password = "1246";
 				
 		//establish the connection
 		Connection con = DriverManager.getConnection(url, user, password);
@@ -68,7 +68,7 @@ public class DbQuery {
 				//variables
 				final String url = "jdbc:mysql:///370test";
 				final String user = "root";
-				final String password = DBPass ;
+				final String password = "1246" ;
 						
 				//establish the connection
 				Connection con = DriverManager.getConnection(url, user, password);
@@ -160,7 +160,7 @@ public class DbQuery {
 		//variables
 		final String url = "jdbc:mysql:///370test";
 		final String user = "root";
-		final String password = DBPass;
+		final String password = "1246";
 				
 		//establish the connection
 		Connection con = DriverManager.getConnection(url, user, password);
