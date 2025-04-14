@@ -37,7 +37,7 @@ The **CSUSM Fitness Membership Management System (MMS)** is a Java-based desktop
 ![View User](./images/viewuser.jpg)
 
 ### ❌ Delete User  
-![Delete User](./images/images/deleteuser.jpg)
+![Delete User](./images/deleteuser.jpg)
 
 ### 🔁 Check In/Out  
 ![Check In/Out](./images/checkin.jpg)
